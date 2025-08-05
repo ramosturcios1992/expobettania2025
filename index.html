@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Expoferia Instituto Bettania 2025 </title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito&display=swap');
+
+  /* Reset y base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: url(img/imagenfondo.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    padding-top: 130px;
+    color: #222;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* Sombra detrás del contenido para mejor lectura */
+  .overlay {
+    position: fixed;
+    top:0; left:0;
+    width: 100vw; height: 100vh;
+    background: rgba(255 255 255 / 0.85);
+    z-index: -1;
+  }
+
+  /* HEADER */
+  header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #ff7043;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px; /* Aumenté el padding arriba y abajo */
+  box-shadow: 0 4px 10px rgba(255,112,67,0.7);
+  z-index: 1000;
+  height: auto; /* aseguramos que se ajuste al contenido */
+}
+
+  header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 3px #d84315;
+  line-height: 1.1; /* Para que el texto no quede demasiado apretado */
+}
+  .header-text {
+  text-align: center;
+  flex: 1;
+  padding-top: 5px; /* Para dar un poco de espacio arriba */
+}
+
+.aniversario {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff8e1;
+  text-shadow: 1px 1px 2px #bf360c;
+  font-family: 'Fredoka One', cursive;
+  animation: brillar 1.8s infinite alternate;
+}
+
+@keyframes brillar {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.7; transform: scale(1.05); }
+}
+
+  #logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 15px;
+  background: white url(img/imagenlogo.jpeg) center/contain no-repeat;
+  border: 3px solid #d84315;
+  box-shadow: 0 0 15px #ff5722;
+  margin-left: 15px; /* Para separar el logo un poco del texto */
+}
+  /* MAIN CONTENIDO */
+  main {
+    max-width: 1100px;
+    margin: 180px auto 70px auto;
+    padding: 0 20px;
+    margin-top: 130px;
+  }
+  section {
+    margin-bottom: 60px;
+    background: #fff3e0;
+    padding: 25px 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.35);
+    border: 4px solid #ff7043;
+  }
+  .video-inicio {
+  display: block;
+  margin: 20px auto;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 20px;
+  border: 4px solid #ff7043;
+  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.35);
+}
+
+
+  section h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.6rem;
+    color: #d84315;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #ff5722;
+    padding-bottom: 10px;
+    letter-spacing: 1.5px;
+  }
+  section p {
+    font-size: 1.15rem;
+    color: #4e342e;
+    line-height: 1.65;
+  }
+
+  /* GALERÍA */
+  #gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: 15px;
+  }
+  #gallery img {
+    width: 100%;
+    border-radius: 15px;
+    border: 3px solid #ff7043;
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  #gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 35px rgba(255, 87, 34, 0.8);
+  }
+
+  /* BOTONES DE CONFETI */
+  .btn-confeti {
+    background: linear-gradient(45deg, #ff5722, #ffca28);
+    border: none;
+    padding: 15px 30px;
+    margin: 15px 15px 40px 0;
+    border-radius: 35px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 15px #ff7043;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  .btn-confeti:hover {
+    transform: scale(1.1);
+    box-shadow: 0 9px 25px #ffab40;
+  }
+
+  /* GUACAMAYA VOLANDO */
+  #guacamaya {
+    position: fixed;
+    top: 80px;
+    left: -160px;
+    width: 140px;
+    z-index: 1200;
+    animation: volar 14s linear infinite;
+    filter: drop-shadow(2px 3px 3px rgba(0,0,0,0.3));
+    user-select: none;
+  }
+  @keyframes volar {
+    0% { left: -160px; top: 60px; transform: scale(1) rotate(0deg);}
+    25% { top: 110px; transform: scale(1.15) rotate(5deg);}
+    50% { left: 110%; top: 70px; transform: scale(1) rotate(0deg);}
+    75% { top: 90px; transform: scale(0.9) rotate(-5deg);}
+    100% { left: -160px; top: 60px; transform: scale(1) rotate(0deg);}
+  }
+
+  /* CONFETI CANVAS */
+  #confetti-canvas {
+    position: fixed;
+    pointer-events: none;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 2000;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    font-weight: 700;
+    padding: 20px;
+    background: #ff7043;
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    box-shadow: 0 -4px 12px rgba(255, 87, 34, 0.7);
+  }
+
+  /* Responsive */
+  @media(max-width: 600px) {
+    header h1 {
+      font-size: 1.9rem;
+    }
+      header p {
+        font-size: 1em;
+      }
+    section {
+      padding: 20px 15px;
+    }
+    .btn-confeti {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  .banda-de-guerra {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+#senorita-expoferia {
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+#senorita-expoferia h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.carrusel {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 10px; /* agrega un poco más de padding */
+  scroll-snap-type: x mandatory;
+  scroll-padding: 10px; /* para que el scroll tenga margen */
+  scroll-behavior: smooth;
+}
+
+
+.card {
+   min-width: 220px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card p {
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+  .carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.carousel-track img {
+  flex: 0 0 auto;
+  width: 300px;
+  border-radius: 15px;
+  border: 3px solid #ff7043;
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.carousel-track img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 35px rgba(255, 87, 34, 0.8);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff7043;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(255,87,34,0.6);
+  transition: background 0.3s ease;
+}
+.carousel-btn:hover {
+  background: #ff5722;
+}
+.carousel-btn.prev {
+  left: 10px;
+}
+.carousel-btn.next {
+  right: 10px;
+}
+
+@media(max-width: 768px) {
+  .carousel-track img {
+    width: 220px;
+  }
+}
+@media(max-width: 600px) {
+  header h1 {
+    font-size: 1.9rem;
+  }
+  header p {
+    font-size: 1em;
+  }
+  section {
+    padding: 20px 15px;
+  }
+  .btn-confeti {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Ajuste especial para iPhones y Safari */
+@supports (-webkit-touch-callout: none) {
+  main {
+    margin-top: 110px;
+  }
+  section {
+    padding-top: 80px;
+    margin-top: -80px;
+  }
+}
+
+/* Teléfonos en orientación vertical (portrait) */
+@media (max-width: 480px) and (orientation: portrait) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  header, nav, section, footer {
+    width: 100%;
+    padding: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carousel-container,
+  .galeria-container,
+  .card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+  }
+}
+
+/* Base para móviles - tamaños y espacios flexibles */
+body {
+  font-size: 16px; /* base legible */
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+/* HEADER */
+header h1 {
+  font-size: 2rem;
+}
+
+/* Ajustes para pantallas muy pequeñas (menos de 360px ancho) */
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  main {
+    margin: 120px 8px 30px 8px;
+    padding: 10px;
+  }
+  .carousel-track img {
+    width: 160px;
+  }
+  .btn-confeti {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Teléfonos pequeños estándar (hasta 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+  header h1 {
+    font-size: 1.8rem;
+  }
+  main {
+    margin: 140px 12px 40px 12px;
+  }
+  .carousel-track img {
+    width: 180px;
+  }
+  .btn-confeti {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+  }
+}
+
+/* Teléfonos medianos (481px a 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  main {
+    margin: 160px 15px 50px 15px;
+  }
+  .carousel-track img {
+    width: 220px;
+  }
+  .btn-confeti {
+    font-size: 1.3rem;
+    padding: 15px 30px;
+  }
+}
+
+/* Ajuste para pantallas anchas tipo tablets o móviles en horizontal */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+  }
+  main {
+    margin: 180px 20px 60px 20px;
+  }
+  .carousel-track img {
+    width: 280px;
+  }
+  .btn-confeti {
+    font-size: 1.4rem;
+    padding: 16px 35px;
+  }
+}
+
+/* Orientación Horizontal en móviles */
+@media (orientation: landscape) and (max-height: 500px) {
+  main {
+    margin: 120px 10px 30px 10px !important;
+  }
+  .carousel-track img {
+    width: 140px !important;
+  }
+  header h1 {
+    font-size: 1.4rem !important;
+  }
+  .btn-confeti {
+    font-size: 1rem !important;
+    padding: 10px 20px !important;
+  }
+}
+
+/* Para móviles (menos de 900px ancho) ajustamos para que no tape el header */
+@media (max-width: 900px) {
+  main {
+    margin-top: 110px; /* espacio para header fijo */
+  }
+  section {
+    padding-top: 80px;  /* deja espacio para el header */
+    margin-top: -80px;  /* para que al hacer scroll anclado no tape el header */
+  }
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<header>
+ <div class="header-text">
+  <h1>EXPOBETTANIA 2025<br>BETTANIA BILINGUAL SCHOOL E INSTITUTO</h1>
+  <span class="aniversario">🎉 5TO ANIVERSARIO 🎉</span>
+</div>
+  <div id="logo" title="Logo Instituto Bettania"></div>
+</header>
+
+<img id="guacamaya" src="img/imagenguacamaya.jpeg.png" alt="Guacamaya volando">
+
+<canvas id="confetti-canvas"></canvas>
+
+<main>
+  <section id="bienvenida">
+    <h2>Un Día Inolvidable</h2>
+    <video class="video-inicio" src="img/clipintro.mp4" autoplay muted loop playsinline></video>
+    <p>La Expoferia del Instituto Bettania 2025 fue un evento lleno de energía, alegría y creatividad. Desde temprano en la mañana, los pasillos del instituto se llenaron de emoción y expectativa. Estudiantes, profesores y visitantes disfrutaron de un ambiente festivo que combinó la tradición con la innovación.</p>
+    <p>El día transcurrió entre risas, aprendizajes y muchas sorpresas, dejando en cada asistente un recuerdo imborrable.</p>
+  </section>
+
+  <section class="banda-guerra">
+    <h2>Banda de Guerra: Ritmo y Disciplina</h2>
+    <p>La banda de guerra brilló con sus impecables presentaciones. Su sincronía y fuerza marcial resonaron en cada rincón del instituto, cautivando a todos los asistentes. Con sus uniformes relucientes y pasos firmes, mostraron el compromiso y el espíritu de la comunidad Bettania.</p>
+    <div class="carrusel">
+    <div class="card">
+      <img src="img/banda1.jpeg" alt="Banda 1">
+      <p>Desfile Institucional</p>
+    </div>
+    <div class="card">
+      <img src="img/banda2.jpeg" alt="Banda 2">
+      <p>Presentación rumbo al parque</p>
+    </div>
+    <div class="card">
+      <img src="img/banda3.jpeg" alt="Banda 3">
+      <p>integrantes disfrutando este momento!!</p>
+    </div>
+    <div class="card">
+      <img src="img/banda4.jpeg" alt="Banda 4">
+      <p>Formación de filas de guiristas</p>
+    </div>
+    <!-- Agrega más tarjetas según necesites -->
+         <div class="card">
+      <img src="img/banda5.jpeg" alt="Banda 5">
+      <p>Integrante de redoblante</p>
+    </div>
+    <div class="card">
+      <img src="img/banda6.jpeg" alt="Banda 6">
+      <p>Marcha rumbo al parque</p>
+    </div>
+    <div class="card">
+      <img src="img/banda7.jpeg" alt="Banda 7">
+      <p>Pancarta de la banda</p>
+    </div>
+    <div class="card">
+      <img src="img/banda8.jpeg" alt="Banda 8">
+      <p>Momentos de concentración</p>
+    </div>
+    <div class="card">
+      <img src="img/banda9.jpeg" alt="Banda 9">
+      <p>Presentacion en el parque</p>
+    </div>
+    <div class="card">
+      <img src="img/banda10.jpeg" alt="Banda 10">
+      <p>Excelente presentacion</p>
+    </div>
+    <div class="card">
+      <img src="img/banda11.jpeg" alt="Banda 11">
+      <p>Ardua Presentación</p>
+    </div>
+    <div class="card">
+      <img src="img/banda12.jpeg" alt="Banda 12">
+      <p>Desfile final</p>
+    </div>
+  </div>
+  </section>
+
+  <section id="senorita-expoferia">
+    <h2>Elección de la Señorita Expoferia</h2>
+    <p>Con gran emoción se llevó a cabo la elección de la Señorita Expoferia. Las candidatas demostraron carisma, talento y un profundo amor por el instituto. La ganadora fue recibida con aplausos y admiración, siendo el símbolo de la belleza y el orgullo de Bettania 2025.</p>
+    <div class="carousel-container">
+    <button class="carousel-btn prev">&#10094;</button>
+    <div class="carousel-track">
+      <img src="img/señorita1.jpeg" alt="Señorita 1" />
+      <img src="img/señorita2.jpeg" alt="Señorita 2" />
+      <img src="img/señorita3.jpeg" alt="Señorita 3" />
+      <img src="img/señorita4.jpeg" alt="Señorita 4" />
+      <img src="img/señorita5.jpeg" alt="Señorita 5" />
+      <img src="img/señorita6.jpeg" alt="Señorita 6" />
+      <img src="img/señorita7.jpeg" alt="Señorita 7" />
+      <img src="img/señorita8.jpeg" alt="Señorita 8" />
+      <img src="img/señorita9.jpeg" alt="Señorita 9" />
+      <img src="img/señorita10.jpeg" alt="Señorita 10" />
+      <img src="img/señorita11.jpeg" alt="Señorita 11" />
+      <img src="img/señorita12.jpeg" alt="Señorita 12" />
+      <img src="img/señorita13.jpeg" alt="Señorita 13" />
+      <img src="img/señorita14.jpeg" alt="Señorita 14" />
+      <img src="img/señorita15.jpeg" alt="Señorita 15" />
+      <img src="img/señorita16.jpeg" alt="Señorita 16" />
+      <img src="img/señorita17.jpeg" alt="Señorita 17" />
+    </div>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+  </section>
+
+  <section id="microempresas">
+    <h2>Microempresas: Talento Emprendedor</h2>
+    <p>Los alumnos pusieron a prueba su creatividad y capacidad emprendedora creando microempresas innovadoras. Ofrecieron productos y servicios que sorprendieron por su calidad y originalidad, demostrando que el futuro está en manos de jóvenes con visión y pasión.</p>
+    <div class="carousel-container">
+    <button class="carousel-btn prev">&#10094;</button>
+    <div class="carousel-track">
+      <img src="img/stand1.jpeg" alt="Stand 1" />
+      <img src="img/stand2.jpeg" alt="Stand 2" />
+      <img src="img/stand3.jpeg" alt="Stand 3" />
+      <img src="img/stand4.jpeg" alt="Stand 4" />
+      <img src="img/stand5.jpeg" alt="Stand 5" />
+      <img src="img/stand6.jpeg" alt="Stand 6" />
+      <img src="img/stand7.jpeg" alt="Stand 7" />
+      <img src="img/stand8.jpeg" alt="Stand 8" />
+      <img src="img/stand9.jpeg" alt="Stand 9" />
+      <img src="img/stand10.jpeg" alt="Stand 10" />
+      <img src="img/stand11.jpeg" alt="Stand 11" />
+      <img src="img/stand12.jpeg" alt="Stand 12" />
+      <img src="img/stand13.jpeg" alt="Stand 13" />
+      <img src="img/stand14.jpeg" alt="Stand 14" />
+      <img src="img/stand15.jpeg" alt="Stand 15" />
+      <img src="img/stand16.jpeg" alt="Stand 16" />
+      <img src="img/stand17.jpeg" alt="Stand 17" />
+      <img src="img/stand18.jpeg" alt="Stand 18" />
+      <img src="img/stand19.jpeg" alt="Stand 19" />
+      <img src="img/stand20.jpeg" alt="Stand 20" />
+      <img src="img/stand21.jpeg" alt="Stand 21" />
+      <img src="img/stand22.jpeg" alt="Stand 22" />
+      <img src="img/stand23.jpeg" alt="Stand 23" />
+      <img src="img/stand24.jpeg" alt="Stand 24" />
+      <img src="img/stand25.jpeg" alt="Stand 25" />
+      <img src="img/stand26.jpeg" alt="Stand 26" />
+      <img src="img/stand27.jpeg" alt="Stand 27" />
+      <img src="img/stand28.jpeg" alt="Stand 28" />
+      <img src="img/stand29.jpeg" alt="Stand 29" />
+      <img src="img/stand30.jpeg" alt="Stand 30" />
+      <img src="img/stand31.jpeg" alt="Stand 31" />
+      <img src="img/stand32.jpeg" alt="Stand 32" />
+    </div>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+  </section>
+
+  <section id="desfile">
+    <h2>Desfile: Color y Alegría</h2>
+    <p>El desfile fue uno de los momentos más vibrantes del día. Los estudiantes desfilaron con trajes coloridos y sonrisas radiantes, contagiando a todos con su entusiasmo. La música, las coreografías y el brillo de los atuendos hicieron de esta experiencia una verdadera fiesta para los sentidos.</p>
+  </section>
+
+  <section id="botones-confeti">
+    <h2>¡Celebra con Nosotros!</h2>
+    <button class="btn-confeti">¡Lanza Confeti!</button>
+    <button class="btn-confeti">¡Fiesta Bettania!</button>
+    <button class="btn-confeti">¡Viva la Expoferia!</button>
+  </section>
+
+  <section id="galeria">
+  <h2>Galería de Momentos</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn prev">&#10094;</button>
+    <div class="carousel-track">
+      <img src="img/imagen1.jpeg" alt="Alumnos en microempresa" />
+      <img src="img/imagen2.jpeg" alt="Banda de guerra en acción" />
+      <img src="img/imagen3.jpeg" alt="Elección de señorita expoferia" />
+      <img src="img/imagen4.jpeg" alt="Desfile colorido" />
+      <img src="img/imagen5.jpeg" alt="Estudiantes felices" />
+      <img src="img/imagen6.jpeg" alt="Trabajo en equipo" />
+      <img src="img/imagen7.jpeg" alt="Presentación artística" />
+      <img src="img/imagen8.jpeg" alt="Stand de microempresa" />
+      <img src="img/imagen9.jpeg" alt="Alumnos disfrutando" />
+      <img src="img/imagen10.jpeg" alt="Familias visitando expoferia" />
+      <img src="img/imagen11.jpeg" alt="Celebración al aire libre" />
+      <img src="img/imagen12.jpeg" alt="Alegría y amistad" />
+      <img src="img/imagen13.jpeg" alt="Estudiantes organizando" />
+      <img src="img/imagen14.jpeg" alt="Celebración en equipo" />
+      <img src="img/imagen15.jpeg" alt="Amigos disfrutando" />
+    </div>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2025 Instituto Bettania - Expoferia
+</footer>
+
+<script>
+  // Efecto carrusel
+  document.querySelectorAll('.carousel-container').forEach(container => {
+  const track = container.querySelector('.carousel-track');
+  const btnPrev = container.querySelector('.carousel-btn.prev');
+  const btnNext = container.querySelector('.carousel-btn.next');
+
+  const scrollAmount = 320;
+
+  btnPrev.addEventListener('click', () => {
+    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  btnNext.addEventListener('click', () => {
+    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+});
+
+  // Confetti efecto
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  let confetti = [];
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  class ConfettiParticle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.size = Math.random() * 7 + 5;
+      this.speedX = (Math.random() - 0.5) * 8;
+      this.speedY = Math.random() * -10 - 5;
+      this.gravity = 0.3;
+      this.rotation = Math.random() * 360;
+      this.rotationSpeed = (Math.random() - 0.5) * 20;
+      this.colors = ['#ff5722', '#ffca28', '#d84315', '#ff7043', '#ffa726'];
+      this.color = this.colors[Math.floor(Math.random() * this.colors.length)];
+    }
+    update() {
+      this.speedY += this.gravity;
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.rotation += this.rotationSpeed;
+    }
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation * Math.PI / 180);
+      ctx.fillStyle = this.color;
+      ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 0.4);
+      ctx.restore();
+    }
+  }
+
+  function createConfetti(x, y) {
+    for(let i = 0; i < 40; i++) {
+      confetti.push(new ConfettiParticle(x, y));
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    confetti.forEach((p, i) => {
+      p.update();
+      p.draw();
+      if (p.y > H + 20) {
+        confetti.splice(i, 1);
+      }
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // Botones que lanzan confeti
+  document.querySelectorAll('.btn-confeti').forEach(button => {
+    button.addEventListener('click', e => {
+      const rect = e.target.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      createConfetti(x, y);
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+
